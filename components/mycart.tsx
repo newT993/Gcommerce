@@ -50,17 +50,19 @@ export default function Cart() {
               >
                 Remove
               </button>
-              <button
-                onClick={handleCheckout}
-                disabled={isLoading}
-                className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 disabled:bg-blue-300"
-              >
-                {isLoading ? "Processing..." : "Checkout"}
-              </button>
             </div>
           ))}
-          <div className="mt-4 text-xl font-bold">
-            Total: ${cartTotal.toFixed(2)}
+          <div className="mt-4">
+            <button
+              onClick={handleCheckout}
+              disabled={isLoading}
+              className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 disabled:bg-blue-300"
+            >
+              {isLoading ? "Processing..." : "Checkout"}
+            </button>
+            <div className=" text-xl font-bold">
+              Total: ${cartTotal.toFixed(2)}
+            </div>
           </div>
         </>
       )}

@@ -5,6 +5,7 @@ import { getSession } from "next-auth/react";
 import Providers from "@/providers/ProvidersCla";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
+import Navbar from "@/components/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,9 +32,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={` ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers session={session}>{children}</Providers>
+        <Providers session={session}>
+          <div className="container mx-auto w-[90%] ">
+            <Navbar />
+            {children}
+          </div>
+        </Providers>
       </body>
     </html>
   );
